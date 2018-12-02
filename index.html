@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    {block:Description}
+      <meta name="description" content="{MetaDescription}">
+    {/block:Description}
+    
+    <title>{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
+    
+    <link rel="shortcut icon" href="{Favicon}">
+    <link rel="apple-touch-icon-precomposed" href="{PortraitURL-128}">
+    <link rel="apple-touch-icon" sizes="57x57" href="{PortraitURL-64}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{PortraitURL-64}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{PortraitURL-64}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{PortraitURL-96}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{PortraitURL-128}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{PortraitURL-128}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{PortraitURL-128}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{PortraitURL-128}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{PortraitURL-128}">
+    <link rel="icon" type="image/png" href="{PortraitURL-30}" sizes="32x32">
+    <link rel="icon" type="image/png" href="{PortraitURL-128}" sizes="192x192">
+    <link rel="icon" type="image/png" href="{PortraitURL-96}" sizes="96x96">
+    <link rel="icon" type="image/png" href="{PortraitURL-16}" sizes="16x16">
+    <link rel="alternate" type="application/rss+xml" href="{RSS}">
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <style>{CustomCSS}</style>
+  </head>
+  <body>
+    <header id="header">
+      <h1 id="site-title"><a href="/">{Title}</a></h1>
+      {block:Description}
+        <p id="site-description">{Description}</p>
+      {/block:Description}
+      
+      <nav id="header-nav">
+        <div id="ask"><a href="/ask">{AskLabel}</a></div>
+        <div id="search">
+          <form action="/search" method="get">
+            <input type="text" name="q" value="{SearchQuery}" placeholder="Search">
+            <button type="submit"><i class="fas fa-search" title="Search" aria-hidden="true"></i><span class="sr-only">Search</span></button>
+          </form>
+        </div>
+      </nav>
+    </header>
+    
+    <main id="main">
+      {block:TagPage}
+        <div id="tag">{Tag}</div>
+      {/block:TagPage}
+      
+      {block:Posts}
+        <article class="article">
+          {block:Text}
+            {block:Title}
+              <header class="article-text-title">
+                <h2><a href="{Permalink}">{Title}</a></h2>
+              </header>
+            {/block:Title}
+            <div class="article-text-body">{Body}</div>
+          {/block:Text}
+          
+          {block:Photo}
+            <figure class="article-photo">
+              <p><a href="{Permalink}"><img src="{PhotoURL-HighRes}" alt="{PhotoAlt}"></a></p>
+              {block:Caption}
+                <figcaption>{Caption}</figcaption>
+              {/block:Caption}
+            </figure>
+          {/block:Photo}
+          
+          {block:Panorama}
+            {LinkOpenTag}
+              <figure class="article-panorama">
+                <p><a href="{Permalink}"><img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"></a></p>
+                {block:Caption}
+                  <figcaption>{Caption}</figcaption>
+                {/block:Caption}
+              </figure>
+            {LinkCloseTag}
+          {/block:Panorama}
+          
+          {block:Photoset}
+            <figure class="article-photoset">
+              <p><a href="{Permalink}">{Photoset-700}</a></p>
+              {block:Caption}
+                <figcaption>{Caption}</figcaption>
+              {/block:Caption}
+            </figure>
+          {/block:Photoset}
+          
+          {block:Quote}
+            <blockquote class="article-quote">
+              <div>{Quote}</div>
+              {block:Source}
+                <p><cite>{Source}</cite></p>
+              {/block:Source}
+            </blockquote>
+          {/block:Quote}
+          
+          {block:Link}
+            <header class="article-link-header">
+              <h2><a href="{URL}" {Target}>{Name}</a></h2>
+              {block:Host}
+                <p>{Host}</p>
+              {/block:Host}
+            </header>
+            {block:Description}
+              <div class="article-link-description">{Description}</div>
+            {/block:Description}
+          {/block:Link}
+          
+          {block:Chat}
+            {block:Title}
+              <header class="article-chat-title">
+                <h2><a href="{Permalink}">{Title}</a></h2>
+              </header>
+            {/block:Title}
+            <div class="article-chat-body">
+              {block:Lines}
+                <p class="article-chat-body-line">
+                  {block:Label}
+                    <span>{Label}</span>
+                  {/block:Label}
+                  {Line}
+                </p>
+              {/block:Lines}
+            </div>
+          {/block:Chat}
+          
+          {block:Video}
+            <figure class="article-video">
+              <div>{Video-500}</div>
+              {block:Caption}
+                <figcaption>{Caption}</figcaption>
+              {/block:Caption}
+            </figure>
+          {/block:Video}
+          
+          {block:Audio}
+            <figure class="article-audio">
+              {block:AlbumArt}
+                <p><img src="{AlbumArtURL}" alt=""></p>
+              {/block:AlbumArt}
+              {block:Caption}
+                <figcaption>{Caption}</figcaption>
+              {/block:Caption}
+            </figure>
+            <div class="article-audio-player">{AudioPlayerBlack}</div>
+          {/block:Audio}
+          
+          <footer class="article-footer">
+            {block:Date}
+              <time class="article-footer-date"><a href="{Permalink}">{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}</a></time>
+            {/block:Date}
+            <ul class="article-footer-links">
+              <li class="article-footer-links-facebook"><a href="https://www.facebook.com/sharer.php?u={Permalink}" target="_blank" title="Share to Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i><span class="sr-only">Facebook</span></a></li>
+              <li class="article-footer-links-twitter"><a href="https://twitter.com/intent/tweet?url={Permalink}" target="_blank" title="Tweet"><i class="fab fa-twitter" aria-hidden="true"></i><span class="sr-only">Twitter</span></a></li>
+              <li class="article-footer-links-reblog">{ReblogButton color="grey" size="16"}</li>
+              <li class="article-footer-links-like">{LikeButton color="grey" size="16"}</li>
+              <li class="article-footer-links-short"><a href="{ShortURL}"><i class="fas fa-link" aria-hidden="true"></i><span class="sr-only">Post URL</a></li>
+              <li class="article-footer-links-embed"><a href="{EmbedUrl}"><i class="fas fa-external-link-alt" aria-hidden="true"></i><span class="sr-only">Embed URL</span></a></li>
+            </ul>
+            {block:RebloggedFrom}
+              <div class="article-footer-reblogged">Reblogged from <a href="{ReblogParentURL}" title="{ReblogRootTitle}">{ReblogRootName}</a></div>
+              <div class="article-footer-original">Orignaly posted by <a href="{ReblogRootURL}" title="{ReblogRootTitle}">{ReblogRootName}</a></div>
+            {/block:RebloggedFrom}
+          </footer>
+        </article>
+      {/block:Posts}
+    </main>
+    
+    <footer id="footer">
+      <nav id="pager">
+        {block:IndexPage}
+          {block:PreviousPage}
+            <div id="pager-index-prev"><a href="{PreviousPage}">&#171; Previous</a></div>
+          {/block:PreviousPage}
+          {block:NextPage}
+            <div id="pager-index-next"><a href="{NextPage}">Next &#187;</a></div>
+          {/block:NextPage}
+        {/block:IndexPage}
+        {block:PermalinkPage}
+          {block:PermalinkPagination}
+            {block:NextPost}
+              <div id="pager-permalink-next"><a href="{NextPost}">&#171; Previous</a></div>
+            {/block:NextPost}
+            {block:PreviousPost}
+              <div id="pager-permalink-prev"><a href="{PreviousPost}">Next &#187;</a></div>
+            {/block:PreviousPost}
+          {/block:PermalinkPagination}
+        {/block:PermalinkPage}
+      </nav>
+      <small id="copyright">Copyright &copy; {CopyrightYears} <a href="/">{Title}</a>, All rights reserved.</small>
+    </footer>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://static.tumblr.com/qdi9m50/Jc8n0ith2/imagesloaded.pkgd.min.js"></script>
+  </body>
+</html>
