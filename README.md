@@ -5,7 +5,7 @@ __[Enter This Website](https://neos21dream.tumblr.com/)__
 
 ## Author
 
-[Neo](http://neo.s21.xrea.com/) ([@Neos21](https://twitter.com/Neos21))
+[Neo](http://neo.s21.xrea.com/)
 
 - [Neo's World](http://neo.s21.xrea.com/)
 - [Corredor](http://neos21.hatenablog.com/)
