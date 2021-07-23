@@ -10,7 +10,6 @@ body {
   color: #202122;
   background: #fcfdfe;
 }
-
 a {
   color: #007aff;
 }
@@ -22,7 +21,7 @@ a:hover {
 #header, #main, #footer {
   position: relative;
   margin: 1rem auto 2rem;
-  width: 80%;
+  width: 70%;
 }
 
 @media (max-width: 575.98px) {
@@ -42,10 +41,17 @@ a:hover {
 
 /* Header */
 
-#site-title,
-#site-description,
-#header-nav {
+#header {
   text-align: center;
+}
+
+#header p,
+#header a {
+  color: #999;
+}
+
+#header a:hover {
+  color: #666;
 }
 
 #site-title a {
@@ -57,20 +63,8 @@ a:hover {
   color: #606162;
 }
 
-#site-description {
-  color: #999;
-}
-
 #header-nav div {
   display: inline;
-}
-
-#header-nav a {
-  color: #999;
-}
-
-#header-nav a:hover {
-  color: #666;
 }
 
 #search form {
@@ -116,7 +110,6 @@ a:hover {
   color: #999;
 }
 
-
 /* Main */
 
 .tag,
@@ -136,6 +129,11 @@ a:hover {
   margin-left: auto;
   max-width: 100%;
   vertical-align: top;
+}
+
+/* For Centering Image */
+.article-photo > p {
+  text-align: center;
 }
 
 .article-footer {
